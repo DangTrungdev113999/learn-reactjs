@@ -15,6 +15,10 @@ class App extends Component {
         console.log('asdf');
     }
 
+    onAddProduct = () => {
+        console.log( this.refs.name.value );
+    }
+
     render() {
 
         const products = [
@@ -66,12 +70,31 @@ class App extends Component {
             <div>
                 <nav className="navbar navbar-inverse">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="#">Hading Event</a>
+                        <a className="navbar-brand" href="#">Refs propeties</a>
                     </div>
                 </nav>
                 <div className="container-fluid">
                     <div className="row">
                         <div className="row">
+                            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div className="panel panel-info">
+                                    <div className="panel-heading">
+                                        <h3 className="panel-title">Tên sản phẩm</h3>
+                                    </div>
+                                    <div className="panel-body">     
+                                        <div className="form-group">
+                                            <label >label</label>
+                                            <input type="text"  className="form-control"  ref='name'/>
+                                        </div>
+                                        <button 
+                                            type="submit" 
+                                            className="btn btn-primary"
+                                            onClick={ this.onAddProduct }>
+                                            lưu
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 { elements }
                             </div>
