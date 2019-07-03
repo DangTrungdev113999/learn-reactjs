@@ -11,10 +11,6 @@ class App extends Component {
         console.log(text);
     }
 
-    onclick3() {
-        console.log('asdf');
-    }
-
     render() {
 
         const products = [
@@ -88,13 +84,6 @@ class App extends Component {
                                     className="btn btn-denger"
                                     onClick={ () => {this.onclick2('abc') } }>
                                     Click me 2 !
-                                </button>
-
-                                <button 
-                                    type="button" 
-                                    className="btn btn-denger"
-                                    onClick={ () => { this.onclick3() }   }>
-                                    Click me 3 !
                                 </button>
                             </div>
                         </div>

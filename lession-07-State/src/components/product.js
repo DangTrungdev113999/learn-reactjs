@@ -43,7 +43,7 @@ class Product extends Component {
                                 <a 
                                     href="#" 
                                     className="btn btn-primary"
-                                     
+                                    onClick={ this.addToCard3.bind(this) }>
                                     Mua nóng hổi
                                 </a>
 
