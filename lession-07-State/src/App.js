@@ -41,16 +41,14 @@ class App extends Component {
     }
 
     onSetState = () => {
-        this.setState({
-           isActive : !this.state.isActive
-        })
+        this.state.isActive = !this.sttate.isActive
     }
 
     render() {
 
         let elements = this.state.products.map((product, index) => {
             let result = '';
-            if ( product.status && this.state.isActive) {
+            if ( product.status ) {
                 result =    <tr key={index}>
                                 <td>{ product.id }</td>
                                 <td>{ product.name }</td>
