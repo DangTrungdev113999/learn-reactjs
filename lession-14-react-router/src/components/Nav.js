@@ -1,12 +1,30 @@
 import React, { Component } from 'react';
-import {Link, Route} from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+
+const menus = [
+    {
+        lable: 'Home',
+        to: '/',
+        exact: true
+    },
+    {
+        lable: 'About',
+        to: '/about',
+        exact: false
+    },
+    {
+        lable: 'Contact',
+        to: '/contact',
+        exact: false
+    }
+]
 
 const MenuLink = ({ lable, to, activeOnlyWhenExact }) => {
     return (
         <Route
             path={to}
             exact={activeOnlyWhenExact}
-            children={({match}) => {
+            children={({ match }) => {
                 let active = match ? 'active abc' : '';
                 return (
                     <li className={`${active} aas`}>
@@ -25,12 +43,25 @@ class Menu extends Component {
         return (
             <nav className="navbar navbar-default">
                 <ul className="nav navbar-nav">
-                    <MenuLink lable='Home' to='/' activeOnlyWhenExact={true} />
-                    <MenuLink lable='About' to='/about' activeOnlyWhenExact={false} />
-                    <MenuLink lable='Contact' to='/contact' activeOnlyWhenExact={false} />
+                    {this.showMenus(menus)}
                 </ul>
             </nav>
         )
+    }
+
+    showMenus = menus => {
+        let result = null;
+        if (menus.length > 0) {
+            result = menus.map((menu, index) => {
+                return <MenuLink
+                    lable={menu.lable}
+                    to={menu.to}
+                    activeOnlyWhenExact={menu.exact}
+                    key={index}
+                />
+            })
+        }
+        return result;
     }
 }
 
