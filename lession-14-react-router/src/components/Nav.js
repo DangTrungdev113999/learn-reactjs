@@ -16,6 +16,11 @@ const menus = [
         lable: 'Contact',
         to: '/contact',
         exact: false
+    },
+    {
+        lable: 'Products',
+        to: '/products',
+        exact: false
     }
 ]
 
