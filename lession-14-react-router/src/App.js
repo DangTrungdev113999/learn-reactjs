@@ -1,28 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
-
-const MenuLink = ({ lable, to, activeOnlyWhenExact }) => {
-    return (
-        <Route
-            path={to}
-            exact={activeOnlyWhenExact}
-            children={({match}) => {
-                let active = match ? 'active abc' : '';
-                return (
-                    <li className={active}>
-                        <Link to={to}>
-                            {lable}
-                        </Link>
-                    </li>
-                );
-            }}
-        />
-    );
-}
+import NotFound from './components/NotFound';
+import Nav from './components/Nav';
 
 class App extends Component {
 
@@ -31,18 +14,16 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
-                    
-                    <nav className="navbar navbar-default">
-                        <ul className="nav navbar-nav">
-                            <MenuLink lable='Home' to='/' activeOnlyWhenExact={true} />
-                            <MenuLink lable='About' to='/about' activeOnlyWhenExact={false} />
-                            <MenuLink lable='Contact' to='/contact' activeOnlyWhenExact={false} />
-                        </ul>
-                    </nav>
+                    {/* Menu */}
+                    <Nav/>
 
-                    <Route exact path='/' component ={Home} />
-                    <Route path='/about' component={About}/>
-                    <Route path='/contact' component={Contact}/>
+                    {/* Content */}
+                    <Switch>
+                        <Route exact path='/' component ={Home} />
+                        <Route path='/about' component={About}/>
+                        <Route path='/contact' component={Contact}/>
+                        <Route component={NotFound} />
+                    </Switch>
                 </div>  
             </Router>
         )
