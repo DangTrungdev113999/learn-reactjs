@@ -57,7 +57,6 @@ class Products extends Component {
                 <div className="row">
                     <Route path='/products/:name'  component={Product} />
                 </div>
-                
             </div>
         )
     }
