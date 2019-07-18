@@ -21,6 +21,11 @@ const menus = [
         lable: 'Products',
         to: '/products',
         exact: false
+    },
+    {
+        lable: 'Login',
+        to: '/login',
+        exact: false
     }
 ]
 
